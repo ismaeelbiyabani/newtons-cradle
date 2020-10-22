@@ -1,30 +1,37 @@
-class Bob
+class bob
 {
-    constructor(body1,body2,offsetX,offsetY){
-        this.offsetX=offsetX
-        this.offsetY=offsetY
+	constructor(x,y,r)
+	{
+		var options={
+			isStatic:false,
+			restitution:1,
+			friction:0,
+			density:0.8
+			
+			}
+		this.x=x;
+		this.y=y;
+		this.r=r
+		
+		this.body=Bodies.circle(this.x, this.y, (this.r)/2, options)
+		World.add(world, this.body);
 
-        var options={
-            bodyA:body1,
-            bodyB:body2,
-            pointB:{x:this.offsetX,y:this.offsetY}
-        }
-        this.rope=Constraint.create(options)
-        World.add(world,this.rope)
-    }
-display()
-{
-    var pointA=this.rope.bodyA.position;
-    var pointB=this.rope.bodyB.position;
+	}
+	display()
+	{
+			
+			var paperpos=this.body.position;
+			push()
+			translate(paperpos.x, paperpos.y);
+			rectMode(CENTER)
+			//strokeWeight(4);
+			fill(255,0,255)
+			//imageMode(CENTER);
+			//image(this.image, 0,0,this.r, this.r)
+			ellipse(0,0,this.r, this.r);
+			pop()
+			
+	}
 
-    strokeWeight(2);
-
-    var Anchor1X=pointA.x
-    var Anchor1X=poinyB.y
-
-    var Anchor2X=pointB.x+this.offsetX
-    var Anchor2Y=pointB.y+this.offsetY
-
-    line(Anchor1X,Anchor1Y,Anchor2X,Anchor2Y);
 }
-}
+
