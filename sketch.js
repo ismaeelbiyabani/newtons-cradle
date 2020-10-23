@@ -30,7 +30,7 @@ function setup() {
 	world = engine.world;
 
 	//Create the Bodies Here.
-	bob = new Bob(50,650,5,5);
+	bob = new bob(50,650,5,5);
     
 
 	Engine.run(engine);
